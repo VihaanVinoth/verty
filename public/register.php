@@ -1,26 +1,26 @@
 <?php
 include_once __DIR__ . '/../database/db.php';
 
-$msg = "";
-
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $username = trim($_POST['username']);
     $password = $_POST['password'];
     $email = trim($_POST['email']);
     if ($username && $password && $email) {
         $hash = password_hash($password, PASSWORD_DEFAULT);
-
+ 
         $stmt = $conn -> prepare("INSERT INTO Accounts (username, password, email) VALUES (?, ?, ?)");
         $stmt -> bind_param("sss", $username, $hash, $email);
         
         try {
             $stmt -> execute();
-            $msg = "You have succesfully registered!";
+            echo '<span class="notice">You have succesfully registered!</span>';
+	    header('Location: login.php');
+	    exit;
         } catch (mysqli_sql_exception $e) {
-            $msg = "Username or email already is registered!";
+            echo '<span class="notice">Username or email already is registered!</span>';
         }
     } else {
-        $msg = "All fields are required!";
+        echo '<span class="notice">All fields are required!</span>';
     }
             
 }
@@ -38,17 +38,20 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <br>
     <h1>&nbsp&nbspCreate an Account</h1>
     <br>
+    <hr>
+    <br>
     <div class="login">
-	<form action="" method="POST">
+    <form action="" method="POST">
        <label>Username:</label><br>
 	   <input type="text" name="username" placeholder="Username" value="<?php echo htmlspecialchars($_POST['username'] ?? ''); ?>"><br>
        <label>Password:</label><br>
 	   <input type="password" name="password" placeholder="Password"><br>
        <label>Email:</label><br>
        <input type="email" name="email" placeholder="Email" value="<?php echo htmlspecialchars($_POST['email'] ?? ''); ?>"><br><br>
-	 <input type="submit" name="submit" value="Sign Up">
-	</form>
+       <input type="submit" name="submit" value="Sign Up">
+       <br>
+       <p>Have an account? <a href="login.php">Log in</a></p>
+    </form>
     </div>
-    <span class="notice"><?= htmlspecialchars($msg) ?></span>
 </body>
 </html>
