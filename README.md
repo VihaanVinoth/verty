@@ -1,6 +1,9 @@
 # verty
 An email application that I made at its most minimal.
 
+<img src="https://github.com/user-attachments/assets/7bc38349-e6e9-41b5-a23e-e4505ab30244" width="500">
+
+
 &nbsp;
 
 > [!NOTE]
