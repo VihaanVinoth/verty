@@ -7,10 +7,10 @@ An email application that I made at its most minimal.
 &nbsp;
 
 > [!NOTE]
-> Look [here](#warning) for another notice in the docs. Please send a pull request if you come across any problems other than if the databases or ```.env``` file doesn't exist.
+> Look [here](#warning) for another notice in the docs. Please send a pull request if you come across any problems other than if the databases or ```.env``` file doesn't exist. I might look into plugging in my Raspberry Pi, and hosting the entire open-source project, but for now, this is what's left of it as a ```git clone```.
 
 ## TL;DR 
-This is only a prototype, so don't expect it to be a fully-scaled project; also, it is not hosted, and the image above is a rendition of the Verty application. I made this open-source, so you can look and help me on this project to extend Verty!
+This is only a prototype, so don't expect it to be a fully-scaled project; also, it is not hosted, and the GIF above is a rendition of the Verty application. I made this open-source, so you can look and help me on this project to extend Verty!
 
 ## Why I made this
 I made this mail application as a passion project to enhance my full-stack skills by learning new languages such as SQL and PHP. This turned out to be a success, and I embark on trying to develop and create something similar to this in the future.
